@@ -10,7 +10,7 @@ aliases:
  - &interface_model {{ os_env('INTERFACE_MODEL', 'virtio') }}
  - &cloudinit_meta_data {{ CLOUDINIT_META_DATA }}
  - &cloudinit_user_data_cfg01 {{ CLOUDINIT_USER_DATA_CFG01 }}
- - &cloudinit_user_data_1604 {{ CLOUDINIT_USER_DATA_1604 }}
+ - &cloudinit_user_data {{ CLOUDINIT_USER_DATA_1604 }}
 
 {% set DOMAIN_NAME = os_env('LAB_CONFIG_NAME', 'physical_mcp11_ovs_dpdk') + '.local' %}
 {% set HOSTNAME_CFG01 = os_env('HOSTNAME_CFG01', 'cfg01.' + DOMAIN_NAME) %}
@@ -77,6 +77,7 @@ template:
 
               root_volume_name: system     # see 'volumes' below
               cloud_init_volume_name: iso  # see 'volumes' below
+              cloud_init_iface_up: enp3s0f1  # see 'interfaces' below.
               volumes:
                 - name: system
                   capacity: !os_env NODE_VOLUME_SIZE, 200
@@ -120,6 +121,7 @@ template:
 
               root_volume_name: system     # see 'volumes' below
               cloud_init_volume_name: iso  # see 'volumes' below
+              cloud_init_iface_up: enp3s0f0  # see 'interfaces' below.
               volumes:
                 - name: system
                   capacity: !os_env NODE_VOLUME_SIZE, 200
@@ -134,7 +136,7 @@ template:
                              # for store image with cloud-init metadata.
 
                   cloudinit_meta_data: *cloudinit_meta_data
-                  cloudinit_user_data: *cloudinit_user_data_cfg01
+                  cloudinit_user_data: *cloudinit_user_data
 
               interfaces:
                 - label: enp3s0f0
@@ -166,6 +168,7 @@ template:
 
               root_volume_name: system     # see 'volumes' below
               cloud_init_volume_name: iso  # see 'volumes' below
+              cloud_init_iface_up: eno1  # see 'interfaces' below.
               volumes:
                 - name: system
                   capacity: !os_env NODE_VOLUME_SIZE, 200
@@ -180,7 +183,7 @@ template:
                              # for store image with cloud-init metadata.
 
                   cloudinit_meta_data: *cloudinit_meta_data
-                  cloudinit_user_data: *cloudinit_user_data_cfg01
+                  cloudinit_user_data: *cloudinit_user_data
 
               interfaces:
                 - label: eno1
@@ -212,6 +215,7 @@ template:
 
               root_volume_name: system     # see 'volumes' below
               cloud_init_volume_name: iso  # see 'volumes' below
+              cloud_init_iface_up: eno1  # see 'interfaces' below.
               volumes:
                 - name: system
                   capacity: !os_env NODE_VOLUME_SIZE, 200
@@ -226,7 +230,7 @@ template:
                              # for store image with cloud-init metadata.
 
                   cloudinit_meta_data: *cloudinit_meta_data
-                  cloudinit_user_data: *cloudinit_user_data_cfg01
+                  cloudinit_user_data: *cloudinit_user_data
 
               interfaces:
                 - label: eno1
@@ -259,6 +263,7 @@ template:
 
               root_volume_name: system     # see 'volumes' below
               cloud_init_volume_name: iso  # see 'volumes' below
+              cloud_init_iface_up: enp3s0f0  # see 'interfaces' below.
               volumes:
                 - name: system
                   capacity: !os_env NODE_VOLUME_SIZE, 200
@@ -273,7 +278,7 @@ template:
                              # for store image with cloud-init metadata.
 
                   cloudinit_meta_data: *cloudinit_meta_data
-                  cloudinit_user_data: *cloudinit_user_data_cfg01
+                  cloudinit_user_data: *cloudinit_user_data
 
               interfaces:
                 - label: enp3s0f0
@@ -315,6 +320,7 @@ template:
 
               root_volume_name: system     # see 'volumes' below
               cloud_init_volume_name: iso  # see 'volumes' below
+              cloud_init_iface_up: eno1  # see 'interfaces' below.
               volumes:
                 - name: system
                   capacity: !os_env NODE_VOLUME_SIZE, 200
@@ -329,7 +335,7 @@ template:
                              # for store image with cloud-init metadata.
 
                   cloudinit_meta_data: *cloudinit_meta_data
-                  cloudinit_user_data: *cloudinit_user_data_cfg01
+                  cloudinit_user_data: *cloudinit_user_data
 
               interfaces:
                 - label: eno1
@@ -371,6 +377,7 @@ template:
 
               root_volume_name: system     # see 'volumes' below
               cloud_init_volume_name: iso  # see 'volumes' below
+              cloud_init_iface_up: enp2s0f0  # see 'interfaces' below.
               volumes:
                 - name: system
                   capacity: !os_env NODE_VOLUME_SIZE, 200
@@ -385,7 +392,7 @@ template:
                              # for store image with cloud-init metadata.
 
                   cloudinit_meta_data: *cloudinit_meta_data
-                  cloudinit_user_data: *cloudinit_user_data_cfg01
+                  cloudinit_user_data: *cloudinit_user_data
 
               interfaces:
                 - label: enp2s0f0
@@ -417,6 +424,7 @@ template:
 
               root_volume_name: system     # see 'volumes' below
               cloud_init_volume_name: iso  # see 'volumes' below
+              cloud_init_iface_up: enp2s0f0  # see 'interfaces' below.
               volumes:
                 - name: system
                   capacity: !os_env NODE_VOLUME_SIZE, 200
@@ -431,7 +439,7 @@ template:
                              # for store image with cloud-init metadata.
 
                   cloudinit_meta_data: *cloudinit_meta_data
-                  cloudinit_user_data: *cloudinit_user_data_cfg01
+                  cloudinit_user_data: *cloudinit_user_data
 
               interfaces:
                 - label: enp2s0f0
